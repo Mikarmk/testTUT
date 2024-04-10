@@ -12,9 +12,9 @@
 }
 
 .user-avatar {
-  width: 40px; /* или любой другой размер, который тебе подходит */
+  width: 40px;
   height: 40px;
-  border-radius: 50%; /* делает изображение круглым */
+  border-radius: 50%; 
   cursor: pointer;
 }
 
@@ -74,19 +74,19 @@ nav a {
 }
 
 #search {
-  padding: 5px 5px 5px 35px; /* Значение слева увеличено, чтобы сделать место для иконки */
+  padding: 5px 5px 5px 35px; 
   border-radius: 20px;
   border: 1px solid #408FFF;
-  outline: none; /* Убирает стандартный outline, чтобы не мешал дизайну */
+  outline: none; 
   background-color: #ffffff;
   color: #000000;
 }
 
 .search-box::before {
-  content: url('search.svg'); /* Поменяй на путь к твоей иконке */
+  content: url('search.svg'); 
   position: absolute;
   left: 10px;
-  pointer-events: none; /* Это сделает так, чтобы на иконку нельзя было нажать */
+  pointer-events: none; 
 }
 
 #course-list {
@@ -143,7 +143,6 @@ nav a {
 </main>
 
 <script>
-	// Мы добавили URL изображений в объекты курсов
 const courses = [
   { id: 1, title: 'Курс JavaScript', description: 'Изучите JavaScript с нуля.', imageUrl: 'media/JS.png' },
   { id: 2, title: 'Курс C#', description: 'Изучите C#', imageUrl: 'media/gamedev.png' },
@@ -168,18 +167,15 @@ function createCourseCard(course) {
   return card;
 }
 
-// 
 const courseList = document.getElementById('course-list');
 courses.forEach(course => {
   courseList.appendChild(createCourseCard(course));
 });
 
-// JavaScript для открытия и закрытия выпадающего меню при клике
 document.querySelector('.user-avatar').addEventListener('click', function() {
   document.querySelector('.profile-menu').style.display = 'block';
 });
 
-// Закрытие меню при клике вне меню
 window.onclick = function(event) {
   if (!event.target.matches('.user-avatar')) {
     var dropdowns = document.getElementsByClassName("profile-menu");
