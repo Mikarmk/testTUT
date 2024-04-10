@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Курсы</title>
+<style>
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 10px 20px;
+  color: white;
+}
+#logo {
+  width: 100px; /* Измени значение в зависимости от желаемого размера логотипа */
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+#search {
+  padding: 5px;
+}
+#course-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.course-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.course-card:hover {
+  transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="Логотип" id="logo">
+  <nav id="navbar">
+    <a href="#">Домой</a>
+    <a href="#">Курсы</a>
+    <a href="#">Контакты</a>
+  </nav>
+  <input type="search" id="search" placeholder="Поиск...">
+</header>
+<main id="course-list">
+  <!-- Карточки курсов будут тут -->
+</main>
+
+<script>
+// Предположим, у нас есть массив объектов с информацией о курсах
+const courses = [
+  { id: 1, title: 'Курс JavaScript', description: 'Изучите JavaScript с нуля' },
+  // Добавь сюда другие курсы
+];
+
+function createCourseCard(course) {
+  const card = document.createElement('div');
+  card.classList.add('course-card');
+  card.innerHTML = `
+    <h3>${course.title}</h3>
+    <p>${course.description}</p>
+  `;
+  card.onclick = function() {
+    // Место для кода модального окна для записи на курс
+    alert('Записаться на курс: ' + course.title);
+  };
+  return card;
+}
+
+const courseList = document.getElementById('course-list');
+courses.forEach(course => {
+  courseList.appendChild(createCourseCard(course));
+});
+</script>
+
+</body>
+</html>
